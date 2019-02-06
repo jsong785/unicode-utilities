@@ -6,10 +6,8 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_executable(test-unicode-utilities
-    ../unicode-common.cpp
-    ../unicode-utf8.cpp
-    ../unicode-utf16.cpp
     main.cpp
     TestUnicodeUtf8.cpp
     TestUnicodeUtf16.cpp
     TestUnicodeUcs32.cpp)
+target_link_libraries(test-unicode-utilities unicode-utilities)
