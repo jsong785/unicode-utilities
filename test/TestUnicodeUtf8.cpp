@@ -1,6 +1,7 @@
 #include "catch.hpp"
 #include "../unicode-common.h"
 #include "../unicode-utf8.h"
+#include "../u8string.h"
 
 #include <string>
 

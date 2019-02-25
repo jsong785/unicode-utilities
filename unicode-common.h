@@ -10,7 +10,14 @@ namespace unicode {
     constexpr unsigned short int TRAIL_SURROGATE_MAX { 0xDFFF };
     constexpr unsigned MAX_UNICODE { 0x10FFFF };
 
-    bool IsLeadSurrogate(char32_t unicode);
-    bool IsTrailSurrogate(char32_t unicode);
-    bool IsValid(char32_t unicode);
+    constexpr bool IsLeadSurrogate(const char32_t unicode){
+        return LEAD_SURROGATE_MIN <= unicode && unicode <= LEAD_SURROGATE_MAX;
+    }
+    constexpr bool IsTrailSurrogate(const char32_t unicode){
+        return TRAIL_SURROGATE_MIN <= unicode && unicode <= TRAIL_SURROGATE_MAX;
+    }
+    constexpr bool IsValid(const char32_t unicode){
+        return 0 <= unicode && unicode <= MAX_UNICODE &&
+            !IsLeadSurrogate(unicode) && !IsTrailSurrogate(unicode);
+    }
 }

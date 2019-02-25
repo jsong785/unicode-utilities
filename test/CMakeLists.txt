@@ -10,4 +10,3 @@ add_executable(test-unicode-utilities
     TestUnicodeUtf8.cpp
     TestUnicodeUtf16.cpp
     TestUnicodeUcs32.cpp)
-target_link_libraries(test-unicode-utilities unicode-utilities)

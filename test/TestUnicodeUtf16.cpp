@@ -25,5 +25,6 @@ TEST_CASE("Utf8Convert from Utf16") {
 
         // supplemental codepoints
         CHECK(utf8::GetUtf8(u"🆗🆘🆙") == u8"🆗🆘🆙");
+        CHECK(utf8::GetUtf8(u"🆗🆘🆙") == u8"🆗🆘🆙");
     }
 }

@@ -1,0 +1,7 @@
+CMakeCache.txt
+CMakeFiles/*
+test/CMakeFiles/*
+Makefile
+*.cmake
+.*
+test/catch.hpp
