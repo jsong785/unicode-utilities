@@ -7,6 +7,8 @@ add_executable(test-unicode-utilities
     TestUnicodeUtf16.cpp
     TestUnicodeUcs32.cpp)
 
+find_package(Catch REQUIRED)
 find_library(unicode-utilities REQUIRED)
-target_link_libraries(test-unicode-utilities PRIVATE unicode-utilities)
-set_property(TARGET test-unicode-utilities PROPERTY CXX_STANDARD 14)
+
+target_link_libraries(test-unicode-utilities PRIVATE unicode-utilities Catch)
+set_target_properties(test-unicode-utilities PROPERTIES CXX_STANDARD 14)

@@ -1,16 +1,17 @@
-#include <string>
+#pragma once
 
-#include "export.h"
+#include <string>
 
 namespace unicode
 {
 namespace encode
 {
 
-std::string DLL_PUBLIC Encode(const char32_t unicode);
+// this is DLL exported as char/char16_t/char32_t
+template <typename T>
+std::string ToUtf8(const T *c);
 
-template <class T>
-std::string DLL_PUBLIC ToUtf8(const T *c);
 
 } // namespace encode
 } // namespace unicode
+

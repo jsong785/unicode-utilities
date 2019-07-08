@@ -19,19 +19,21 @@ enum class ByteType : unsigned char
     LEADING_FOUR = 0xF
 };
 
-DLL_PUBLIC std::pair<char32_t, char32_t> ByteLimits(const ByteType type);
+constexpr std::pair<char32_t, char32_t> ByteLimits(const ByteType type);
+constexpr bool IsLead(const char ch);
+constexpr bool IsTrail(const char ch);
 
-DLL_PUBLIC bool IsLead(const char ch);
-DLL_PUBLIC bool IsTrail(const char ch);
+constexpr bool IsCorrectUnicodeForByteType(const char32_t unicode, const ByteType type);
 
-DLL_PUBLIC bool IsCorrectUnicodeForByteType(const char32_t unicode, const ByteType type);
+constexpr char GetLeadByte(const char32_t unicode, const ByteType type);
+constexpr bool GetTrailBytes(const char32_t unicode, const ByteType type, char buf[4]);
 
-DLL_PUBLIC char GetLeadByte(const char32_t unicode, const ByteType type);
-DLL_PUBLIC std::string GetTrailBytes(const char32_t unicode, const ByteType type);
-
-DLL_PUBLIC ByteType GetByteType(const char ch);
-DLL_PUBLIC ByteType GetByteTypeFromUnicode(const char32_t unicode);
-DLL_PUBLIC std::size_t GetByteCount(const ByteType type);
+constexpr ByteType GetByteType(const char ch);
+constexpr ByteType GetByteTypeFromUnicode(const char32_t unicode);
+constexpr std::size_t GetByteCount(const ByteType type);
 
 } // namespace utf8
 } // namespace unicodeear
+
+#include "unicode-utf8.cpp"
+
